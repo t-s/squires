@@ -100,7 +100,6 @@ public class Guy {
 		x = (x + xMV);
 		y = (y + yMV);*/
 		
-		// Your Variables
 		float speed = 300;
 		float elapsed = 0.01f;
 		
@@ -141,6 +140,35 @@ public class Guy {
 			moving = false;
 		}	
 		
+	}
+	
+	public boolean collides (int otherx, int othery)
+	{
+		boolean inx = false;
+		boolean iny = false;
+		
+		if(otherx >= x)
+		{	
+			if(otherx <= x+32)
+			{
+				inx = true;
+				//System.out.println("inx true");
+			}
+		}
+		if(othery > y)
+		{
+			if(othery <= y+32)
+			{
+				iny = true;
+				//System.out.println("iny true");
+			}
+			
+		}
+		
+		if(inx && iny)
+			return true;
+		else
+			return false;
 	}
 
 }

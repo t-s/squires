@@ -1,5 +1,6 @@
 package com;
 
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
@@ -9,8 +10,9 @@ public class Mage extends Guy {
 	public Mage(Double startx, Double starty) throws SlickException
 	{
 		super(startx, starty);
-		sheet = new SpriteSheet("../sprites/mage.png",8,8);
-		attackSheet = new SpriteSheet("../sprites/mage.png",16,8);
+
+		sheet = new SpriteSheet("./sprites/mage.png",8,8);
+		attackSheet = new SpriteSheet("./sprites/mage.png",16,8);
 		
 		rightWalkingAnim = new Animation();
 		leftWalkingAnim = new Animation();

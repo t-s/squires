@@ -9,8 +9,8 @@ public class Knight extends Guy {
 	public Knight(Double startx, Double starty) throws SlickException
 	{
 		super(startx, starty);
-		sheet = new SpriteSheet("../sprites/knight.png",8,8);
-		attackSheet = new SpriteSheet("../sprites/knight.png",16,8);
+		sheet = new SpriteSheet("./sprites/knight.png",8,8);
+		attackSheet = new SpriteSheet("./sprites/knight.png",16,8);
 		
 		rightWalkingAnim = new Animation();
 		leftWalkingAnim = new Animation();
