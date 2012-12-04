@@ -1,3 +1,0 @@
-Move queues for each character. One move function that takes next move, moves there, then moves on.
-Point and click movement. Set boolean flags to determine who has been clicked.
-Differentiate between clicking to select and clicking to move. 
