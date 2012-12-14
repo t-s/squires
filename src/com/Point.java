@@ -11,4 +11,10 @@ public class Point {
 		x = newx;
 		y = newy;
 	}
+	
+	public Point(int newx, int newy)
+	{
+		x = (double)newx;
+		y = (double)newy;
+	}
 }

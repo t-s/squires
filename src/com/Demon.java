@@ -6,17 +6,17 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.util.Queue;
 
-public class Archer extends Guy {
+public class Demon extends Guy {
 
-	public Archer(Double startx, Double starty) throws SlickException
+	public Demon(Double startx, Double starty) throws SlickException
 	{
 		
 		super(startx, starty);
 		
 		Queue<Point> moveQueue;
 
-		sheet = new SpriteSheet("./sprites/archer.png",8,8);
-		attackSheet = new SpriteSheet("./sprites/archer.png",16,8);
+		sheet = new SpriteSheet("./sprites/demon.png",8,8);
+		attackSheet = new SpriteSheet("./sprites/demon.png",8,8);
 		
 		rightWalkingAnim = new Animation();
 		leftWalkingAnim = new Animation();
