@@ -15,8 +15,11 @@ import java.util.*;
 public class MainGame extends BasicGame {
 
 	Map<Entity,Point> moves = new HashMap<Entity,Point>();
-	boolean entitySelected = false;
-	FrontLine fl = new FrontLine();
+
+    boolean entitySelected = false;
+
+    FrontLine fl = new FrontLine();
+
 	Mage bob;
 	Knight ted;
 	Archer mike;
@@ -34,7 +37,7 @@ public class MainGame extends BasicGame {
 	
     public MainGame()
     {
-        super("Sprites");
+        super("Squires");
     }
  
     @Override
@@ -80,14 +83,14 @@ public class MainGame extends BasicGame {
     	
     	if(button == Input.MOUSE_LEFT_BUTTON)
     	{
-    		System.out.println(x + " " + y);
+    		//System.out.println(x + " " + y);
     		
-    		for (Entity bro: entities)
+    		for (Entity entity: entities)
     		{
-    			if (bro.collides(x, y))
+    			if (entity.collides(x, y))
     			{  
     				if(numEntitiesClicked < 1)
-    					entityClicks.add(bro);
+    					entityClicks.add(entity);
     				numEntitiesClicked++;
     				entitiesClicked = true;
     			}
@@ -122,9 +125,9 @@ public class MainGame extends BasicGame {
     	g.setLineWidth(4);
     	g.drawLine(fl.x1, fl.y1, fl.x2, fl.y2);
     	
-    	for (Entity bro: entities)
+    	for (Entity entity: entities)
     	{
-    		bro.draw();
+    		entity.draw();
     	}
     	
     	if((entityClicks != null) && (entityClicks.size() > 0))
@@ -136,6 +139,7 @@ public class MainGame extends BasicGame {
     		{
     			for (Entity entity : entityClicks)
     			{
+                    // let's draw a thin white box around the character selected
     				g.drawRoundRect((float)(entity.getX()-2), (float)(entity.getY()-4), 36, 36, 4);
     			}
     		}

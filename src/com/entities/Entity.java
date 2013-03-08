@@ -82,11 +82,11 @@ public class Entity {
 	public void moveTo(Double newx, Double newy)
 	{
 		
-		//TODO make it so that facing flags are set automatically
-		//if destination x is to right of current, then face right true
-		//if destination y is under current y, face down true
-		//if difference between current y and target y is greater than
-		//destination x and current x, face down wins
+		// TODO make it so that facing flags are set automatically
+		// if destination x is to right of current, then face right true
+		// if destination y is under current y, face down true
+		// if difference between current y and target y is greater than
+		// destination x and current x, face down wins
 		
 		/*
 		moving = true;
@@ -137,8 +137,7 @@ public class Entity {
 		float distance = (float) Math.sqrt(Math.pow(newx-x,2)+Math.pow(newy-y,2));
 		float directionX = (float) ((newx-x) / distance);
 		float directionY = (float) ((newy-y) / distance);
-		x = (double) x;
-		y = (double) y;
+
 		moving = true;
 	
 		if(distance > 2)
