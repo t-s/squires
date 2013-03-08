@@ -1,9 +1,9 @@
-package com;
+package com.entities;
 
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
 
-public class Guy {
+public class Entity {
 	
 	protected Boolean facingLeft = false;
 	protected Boolean facingDown = false;
@@ -32,7 +32,7 @@ public class Guy {
 	protected Integer HEIGHT = 32;
 	protected Integer WIDTH = 32;
 	
-	public Guy(Double startx, Double starty) 
+	public Entity(Double startx, Double starty)
 	{
 		
 		x = startx;
@@ -54,6 +54,21 @@ public class Guy {
 	{
 		x = newx;
 	}
+
+    public void setY(Double newy)
+    {
+        y = newy;
+    }
+
+    public Double getX()
+    {
+        return x;
+    }
+
+    public Double getY()
+    {
+        return y;
+    }
 	
 	public void setLeft(boolean left)
 	{

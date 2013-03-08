@@ -1,5 +1,6 @@
 package com;
 
+import com.entities.*;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -13,8 +14,8 @@ import java.util.*;
 
 public class MainGame extends BasicGame {
 
-	Map<Guy,Point> moves = new HashMap<Guy,Point>();
-	boolean guySelected = false;
+	Map<Entity,Point> moves = new HashMap<Entity,Point>();
+	boolean entitySelected = false;
 	FrontLine fl = new FrontLine();
 	Mage bob;
 	Knight ted;
@@ -26,8 +27,8 @@ public class MainGame extends BasicGame {
 	
 	World world;
 	
-	ArrayList<Guy> guys = new ArrayList<Guy>();
-	ArrayList<Guy> guyClicks = new ArrayList<Guy>();
+	ArrayList<Entity> entities = new ArrayList<Entity>();
+	ArrayList<Entity> entityClicks = new ArrayList<Entity>();
 	
 	boolean moveleft = true;
 	
@@ -48,13 +49,13 @@ public class MainGame extends BasicGame {
     	dale = new Demon(300d,400d);
     	ned = new Necro(400d,300d);
     	
-    	guys.add(bob);
-    	guys.add(ted);
-    	guys.add(mike);
-    	guys.add(walt);
-    	guys.add(sam);
-    	guys.add(dale);
-    	guys.add(ned);
+    	entities.add(bob);
+    	entities.add(ted);
+    	entities.add(mike);
+    	entities.add(walt);
+    	entities.add(sam);
+    	entities.add(dale);
+    	entities.add(ned);
     	
     	world = new World(gc);
     }
@@ -64,7 +65,7 @@ public class MainGame extends BasicGame {
 			throws SlickException     
     {
     	
-    	for(Map.Entry<Guy, Point> move: moves.entrySet())
+    	for(Map.Entry<Entity, Point> move: moves.entrySet())
     	{
     		move.getKey().moveTo(move.getValue().x, move.getValue().y);
     	}
@@ -74,42 +75,40 @@ public class MainGame extends BasicGame {
     @Override
     public void mouseReleased(int button, int x, int y)
     {
-    	boolean guyClicked = false;
-    	int numGuysClicked = 0;
+    	boolean entitiesClicked = false;
+    	int numEntitiesClicked = 0;
     	
     	if(button == Input.MOUSE_LEFT_BUTTON)
     	{
     		System.out.println(x + " " + y);
     		
-    		for (Guy bro: guys)
+    		for (Entity bro: entities)
     		{
     			if (bro.collides(x, y))
     			{  
-    				if(numGuysClicked < 1)
-    					guyClicks.add(bro);
-    				numGuysClicked++;
-    				guyClicked = true;
+    				if(numEntitiesClicked < 1)
+    					entityClicks.add(bro);
+    				numEntitiesClicked++;
+    				entitiesClicked = true;
     			}
-    			
-    			
     					
     		}
     		
-    		if(guyClicked == false)
+    		if(entitiesClicked == false)
     		{
-    			guySelected = false;
+    			entitySelected = false;
     			
-    			for (Guy broski : guyClicks)
+    			for (Entity entity : entityClicks)
     			{	
     				Point tempPoint = new Point(x,y);
-    				moves.put(broski, tempPoint);
+    				moves.put(entity, tempPoint);
     			}
     			
-    			guyClicks.clear();
+    			entityClicks.clear();
     		}
     		else 
     		{
-    			guySelected = true;
+    			entitySelected = true;
     		}
     	}
     }
@@ -123,20 +122,21 @@ public class MainGame extends BasicGame {
     	g.setLineWidth(4);
     	g.drawLine(fl.x1, fl.y1, fl.x2, fl.y2);
     	
-    	for (Guy bro: guys)
+    	for (Entity bro: entities)
     	{
     		bro.draw();
     	}
     	
-    	if((guyClicks != null) && (guyClicks.size() > 0))
+    	if((entityClicks != null) && (entityClicks.size() > 0))
     	{	
     		g.setColor(Color.white);
     		g.setLineWidth(3);
-    		if(guySelected)
+
+            if(entitySelected)
     		{
-    			for (Guy broski: guyClicks)
+    			for (Entity entity : entityClicks)
     			{
-    				g.drawRoundRect((float)(broski.x-2), (float)(broski.y-4), 36, 36, 4);
+    				g.drawRoundRect((float)(entity.getX()-2), (float)(entity.getY()-4), 36, 36, 4);
     			}
     		}
     		else

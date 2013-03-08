@@ -1,22 +1,23 @@
-package com;
+package com.entities;
 
+import com.Point;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.util.Queue;
 
-public class Skeleton extends Guy {
+public class Warrior extends Entity {
 
-	public Skeleton(Double startx, Double starty) throws SlickException
+	public Warrior(Double startx, Double starty) throws SlickException
 	{
 		
 		super(startx, starty);
 		
 		Queue<Point> moveQueue;
 
-		sheet = new SpriteSheet("./sprites/skeletonshield.png",8,8);
-		attackSheet = new SpriteSheet("./sprites/skeletonshield.png",8,8);
+		sheet = new SpriteSheet("./sprites/warrior.png",8,8);
+		attackSheet = new SpriteSheet("./sprites/warrior.png",16,8);
 		
 		rightWalkingAnim = new Animation();
 		leftWalkingAnim = new Animation();
@@ -39,7 +40,7 @@ public class Skeleton extends Guy {
     		dieAnim.addFrame((sheet.getSprite(frame,4).getFlippedCopy(false, false)),400);
     	
     	attackLeftAnim.addFrame((attackSheet.getSprite(2,0).getFlippedCopy(true, false)),300);
-    	attackRightAnim.addFrame((attackSheet.getSprite(1,0).getFlippedCopy(false, false)),300);
+    	attackRightAnim.addFrame((attackSheet.getSprite(2,0).getFlippedCopy(false, false)),300);
 		
     	facingRight = true;
 	}

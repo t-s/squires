@@ -1,22 +1,16 @@
-package com;
+package com.entities;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
-import java.util.Queue;
+public class Knight extends Entity {
 
-public class Necro extends Guy {
-
-	public Necro(Double startx, Double starty) throws SlickException
+	public Knight(Double startx, Double starty) throws SlickException
 	{
-		
 		super(startx, starty);
-		
-		Queue<Point> moveQueue;
-
-		sheet = new SpriteSheet("./sprites/necrored.png",8,8);
-		attackSheet = new SpriteSheet("./sprites/necrored.png",16,8);
+		sheet = new SpriteSheet("./sprites/knight.png",8,8);
+		attackSheet = new SpriteSheet("./sprites/knight.png",16,8);
 		
 		rightWalkingAnim = new Animation();
 		leftWalkingAnim = new Animation();

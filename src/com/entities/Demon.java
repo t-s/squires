@@ -1,22 +1,23 @@
-package com;
+package com.entities;
 
+import com.Point;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.util.Queue;
 
-public class Warrior extends Guy {
+public class Demon extends Entity {
 
-	public Warrior(Double startx, Double starty) throws SlickException
+	public Demon(Double startx, Double starty) throws SlickException
 	{
 		
 		super(startx, starty);
 		
 		Queue<Point> moveQueue;
 
-		sheet = new SpriteSheet("./sprites/warrior.png",8,8);
-		attackSheet = new SpriteSheet("./sprites/warrior.png",16,8);
+		sheet = new SpriteSheet("./sprites/demon.png",8,8);
+		attackSheet = new SpriteSheet("./sprites/demon.png",8,8);
 		
 		rightWalkingAnim = new Animation();
 		leftWalkingAnim = new Animation();
