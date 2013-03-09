@@ -8,6 +8,9 @@ public class Knight extends Entity {
 
     public Knight(Double startx, Double starty) throws SlickException {
         super(startx, starty);
+
+        Name = "Knight";
+
         sheet = new SpriteSheet("./sprites/knight.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/knight.png", 16, 8);
 

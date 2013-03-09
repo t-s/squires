@@ -13,7 +13,7 @@ public class Warrior extends Entity {
 
         super(startx, starty);
 
-        Queue<Point> moveQueue;
+        Name = "Warrior";
 
         sheet = new SpriteSheet("./sprites/warrior.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/warrior.png", 16, 8);

@@ -10,6 +10,8 @@ public class Mage extends Entity {
     public Mage(Double startx, Double starty) throws SlickException {
         super(startx, starty);
 
+        Name = "Mage";
+
         sheet = new SpriteSheet("./sprites/mage.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/mage.png", 16, 8);
 

@@ -21,12 +21,11 @@ public class MainGame extends BasicGame {
 
     FrontLine fl = new FrontLine();
 
-    public World world;
+    //can't initialize until we have a GameContainer
+    public World world = null;
 
     public EntityCollection collection = new EntityCollection();
     ArrayList<Entity> entityClicks = new ArrayList<Entity>();
-
-    boolean moveleft = true;
 
     public MainGame() {
         super("Squires");
@@ -49,17 +48,33 @@ public class MainGame extends BasicGame {
     @Override
     public void update(GameContainer gc, int delta)
             throws SlickException {
-        // collision logic will need to be more intelligent, e.g. only really check at end of movement
-        // so, it'll need to be somewhere else. I'll keep the checks here for now.
-        boolean collided = false;
+
+        boolean collisionFlag;
+
         for (Map.Entry<Entity, Point> move : moves.entrySet()) {
-            collided = false;
-            for (Entity entity : collection.container)
+
+            collisionFlag = false;
+
+            if(!move.getKey().isMoving())
             {
-                if(move.getKey().collides(entity.getX(), entity.getY()))
-                    collided = true;
+                for (Entity entity : collection.container)
+                {
+                    if(move.getKey().hashCode() == entity.hashCode())
+                        continue;
+
+                    if(move.getKey().collides(entity.getPoint()))
+                    {
+                        collisionFlag = true;
+
+                    }
+
+                }
+
             }
-            move.getKey().moveTo(move.getValue().x, move.getValue().y);
+
+            if(!collisionFlag)
+                move.getKey().moveTo(move.getValue().x, move.getValue().y);
+
         }
 
     }
@@ -116,7 +131,7 @@ public class MainGame extends BasicGame {
             if (entitySelected) {
                 for (Entity entity : entityClicks) {
                     // let's draw a thin white box around the character selected
-                    g.drawRoundRect((float) (entity.getX() - 2), (float) (entity.getY() - 4), 36, 36, 4);
+                    g.drawRoundRect((float) (entity.getX() - 2), (float) (entity.getY() - 2), 36, 36, 4);
                 }
             } else {
                 g.clear();

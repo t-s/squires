@@ -13,7 +13,7 @@ public class Archer extends Entity {
 
         super(startx, starty);
 
-        Queue<Point> moveQueue;
+        Name = "Archer";
 
         sheet = new SpriteSheet("./sprites/archer.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/archer.png", 16, 8);

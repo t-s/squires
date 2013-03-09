@@ -29,7 +29,7 @@ public class World {
 
         container = gc;
 
-        randGreen = new Integer(0);
+        int randGreen;
         generator = new Random();
 
         tiles = new int[WORLD_WIDTH][WORLD_HEIGHT];

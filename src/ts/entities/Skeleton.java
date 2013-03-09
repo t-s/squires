@@ -13,7 +13,7 @@ public class Skeleton extends Entity {
 
         super(startx, starty);
 
-        Queue<Point> moveQueue;
+        Name = "Skeleton";
 
         sheet = new SpriteSheet("./sprites/skeletonshield.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/skeletonshield.png", 8, 8);

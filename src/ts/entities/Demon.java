@@ -13,7 +13,7 @@ public class Demon extends Entity {
 
         super(startx, starty);
 
-        Queue<Point> moveQueue;
+        Name = "Demon";
 
         sheet = new SpriteSheet("./sprites/demon.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/demon.png", 8, 8);

@@ -4,6 +4,8 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
 import ts.Point;
 
+import java.util.PriorityQueue;
+
 public class Entity {
 
     protected Boolean facingLeft = false;
@@ -28,12 +30,20 @@ public class Entity {
     protected Double y;
     protected Integer HEIGHT = 32;
     protected Integer WIDTH = 32;
+    protected String Name = "";
+
+    public PriorityQueue<Point> movequeue = new PriorityQueue<Point>();
 
     public Entity(Double startx, Double starty) {
 
         x = startx;
         y = starty;
 
+    }
+
+    public boolean isMoving()
+    {
+        return moving;
     }
 
     public void draw() {
@@ -175,13 +185,11 @@ public class Entity {
         if (otherx >= x) {
             if (otherx <= x + 32) {
                 inx = true;
-                //System.out.println("inx true");
             }
         }
         if (othery > y) {
             if (othery <= y + 32) {
                 iny = true;
-                //System.out.println("iny true");
             }
 
         }
@@ -190,6 +198,36 @@ public class Entity {
             return true;
         else
             return false;
+    }
+
+    public boolean collides(Point pt) {
+        boolean inx = false;
+        boolean iny = false;
+
+        double otherx = pt.getX();
+        double othery = pt.getY();
+
+        if (otherx >= x) {
+            if (otherx <= x + 32) {
+                inx = true;
+            }
+        }
+        if (othery >= y) {
+            if (othery <= y + 32) {
+                iny = true;
+            }
+
+        }
+
+        if (inx && iny)
+            return true;
+        else
+            return false;
+    }
+
+    public String getName()
+    {
+        return Name;
     }
 
 }

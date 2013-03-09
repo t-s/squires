@@ -13,7 +13,7 @@ public class Necro extends Entity {
 
         super(startx, starty);
 
-        Queue<Point> moveQueue;
+        Name = "Necro";
 
         sheet = new SpriteSheet("./sprites/necrored.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/necrored.png", 16, 8);
