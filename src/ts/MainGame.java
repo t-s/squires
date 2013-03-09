@@ -19,10 +19,11 @@ public class MainGame extends BasicGame {
 
     boolean entitySelected = false;
 
-    FrontLine fl = new FrontLine();
 
-    //can't initialize until we have a GameContainer
+
+    //can't initialize until we have a GameContainer, same with fl
     public World world = null;
+    FrontLine fl = null;
 
     public EntityCollection collection = new EntityCollection();
     ArrayList<Entity> entityClicks = new ArrayList<Entity>();
@@ -43,6 +44,8 @@ public class MainGame extends BasicGame {
         collection.add(new Necro(400d, 300d));
 
         world = new World(gc);
+        fl = new FrontLine(gc);
+
     }
 
     @Override
@@ -144,7 +147,7 @@ public class MainGame extends BasicGame {
         AppGameContainer app =
                 new AppGameContainer(new MainGame());
 
-        app.setDisplayMode(800, 600, false);
+        app.setDisplayMode(1000, 600, false);
         app.setVSync(true);
         app.start();
     }

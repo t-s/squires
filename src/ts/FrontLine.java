@@ -1,16 +1,18 @@
 package ts;
 
+import org.newdawn.slick.GameContainer;
+
 public class FrontLine {
 
     float x1, y1;
     float x2, y2;
 
-    public FrontLine() {
-        x1 = 400;
+    public FrontLine(GameContainer gc) {
+        x1 = gc.getWidth()/2;
         y1 = 0;
 
-        x2 = 400;
-        y2 = 600;
+        x2 = gc.getWidth()/2;
+        y2 = gc.getHeight();
     }
 
     public FrontLine(double x1a, double y1a, double x2a, double y2a) {
