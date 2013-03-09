@@ -1,4 +1,4 @@
-package com.entities;
+package ts.entities;
 
 
 import org.newdawn.slick.Animation;

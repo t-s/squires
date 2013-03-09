@@ -1,13 +1,17 @@
-package com;
+package ts;
 
+import java.util.ArrayList;
 import java.util.Random;
 
+import ts.entities.Entity;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 public class World {
+
+    public ArrayList<Entity> entities = new ArrayList<Entity>();
 
     private Random generator;
     private Integer randGreen;
@@ -19,6 +23,7 @@ public class World {
     private int WORLD_HEIGHT = 21;
     // tile is square, so TILE_SIZE is same for height and width
     private int TILE_SIZE = 32;
+
 
     public World(GameContainer gc) throws SlickException {
 

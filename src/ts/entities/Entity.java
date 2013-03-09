@@ -1,7 +1,8 @@
-package com.entities;
+package ts.entities;
 
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
+import ts.Point;
 
 public class Entity {
 
@@ -58,6 +59,10 @@ public class Entity {
 
     public void setY(Double newy) {
         y = newy;
+    }
+
+    public Point getPoint() {
+        return new Point(x,y);
     }
 
     public void setLeft(boolean left) {
@@ -128,6 +133,7 @@ public class Entity {
 
         if (distance > 2) {
             // On update
+
             if (moving == true) {
                 x += directionX * speed * elapsed;
                 y += directionY * speed * elapsed;
@@ -136,6 +142,30 @@ public class Entity {
             moving = false;
         }
 
+    }
+
+    public boolean collides(Double otherx, Double othery) {
+        boolean inx = false;
+        boolean iny = false;
+
+        if (otherx >= x) {
+            if (otherx <= x + 32) {
+                inx = true;
+                //System.out.println("inx true");
+            }
+        }
+        if (othery > y) {
+            if (othery <= y + 32) {
+                iny = true;
+                //System.out.println("iny true");
+            }
+
+        }
+
+        if (inx && iny)
+            return true;
+        else
+            return false;
     }
 
     public boolean collides(int otherx, int othery) {
