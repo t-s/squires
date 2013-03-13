@@ -35,13 +35,23 @@ public class MainGame extends BasicGame {
     @Override
     public void init(GameContainer gc) throws SlickException {
 
-        collection.add(new Mage(200d, 100d));
-        collection.add(new Knight(400d, 400d));
-        collection.add(new Archer(300d, 300d));
-        collection.add(new Warrior(500d, 300d));
-        collection.add(new Skeleton(200d, 400d));
-        collection.add(new Demon(300d, 400d));
-        collection.add(new Necro(400d, 300d));
+        collection.add(new Mage(400d-32d, 100d));
+        collection.add(new Knight(400d-32d, 200d));
+        collection.add(new Archer(400d-32d, 400d));
+        collection.add(new Warrior(400d-32d, 500d));
+        collection.add(new Necro(400d-32d, 300d));
+
+        collection.add(new Skeleton(600d,100d));
+        collection.add(new Skeleton(600d,200d));
+        collection.add(new Demon(600d, 300d));
+        collection.add(new Skeleton(600d,400d));
+        collection.add(new Skeleton(600d,500d));
+
+        for (Entity entity : collection.container)
+        {
+            if(!entity.isPlayerSide())
+                entity.setFacingLeft();
+        }
 
         world = new World(gc);
         fl = new FrontLine(gc);

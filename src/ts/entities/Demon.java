@@ -15,6 +15,8 @@ public class Demon extends Entity {
 
         Name = "Demon";
 
+        isPlayerSide = false;
+
         sheet = new SpriteSheet("./sprites/demon.png", 8, 8);
         attackSheet = new SpriteSheet("./sprites/demon.png", 8, 8);
 

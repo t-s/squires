@@ -8,29 +8,37 @@ import java.util.PriorityQueue;
 
 public class Entity {
 
-    protected Boolean facingLeft = false;
-    protected Boolean facingDown = false;
-    protected Boolean facingUp = false;
-    protected Boolean facingRight = false;
-    protected Boolean attackRight = false;
-    protected Boolean attackLeft = false;
-    protected Boolean moving = false;
-    protected Boolean dead = false;
-    protected SpriteSheet sheet;
-    protected SpriteSheet attackSheet;
-    protected Animation nowAnim;
-    protected Animation rightWalkingAnim;
-    protected Animation leftWalkingAnim;
-    protected Animation downWalkingAnim;
-    protected Animation upWalkingAnim;
-    protected Animation attackRightAnim;
-    protected Animation attackLeftAnim;
-    protected Animation dieAnim;
-    protected Double x;
-    protected Double y;
-    protected Integer HEIGHT = 32;
-    protected Integer WIDTH = 32;
-    protected String Name = "";
+    Double x;
+    Double y;
+
+    Boolean facingLeft = false;
+    Boolean facingDown = false;
+    Boolean facingUp = false;
+    Boolean facingRight = false;
+
+    Boolean attackRight = false;
+    Boolean attackLeft = false;
+    Boolean moving = false;
+    Boolean dead = false;
+
+    SpriteSheet sheet;
+    SpriteSheet attackSheet;
+
+    Animation nowAnim;
+    Animation rightWalkingAnim;
+    Animation leftWalkingAnim;
+    Animation downWalkingAnim;
+    Animation upWalkingAnim;
+    Animation attackRightAnim;
+    Animation attackLeftAnim;
+    Animation dieAnim;
+
+    Integer HEIGHT = 32;
+    Integer WIDTH = 32;
+
+    String Name = "";
+    boolean selectable = true;
+    boolean isPlayerSide = true;
 
     public PriorityQueue<Point> movequeue = new PriorityQueue<Point>();
 
@@ -228,6 +236,30 @@ public class Entity {
     public String getName()
     {
         return Name;
+    }
+
+    public void move()
+    {
+
+        //if(movequeue.)
+
+    }
+
+    public void setFacingLeft()
+    {
+        facingLeft = true;
+        facingRight = false;
+    }
+
+    public void setFacingRight()
+    {
+        facingLeft = false;
+        facingRight = true;
+    }
+
+    public boolean isPlayerSide()
+    {
+        return isPlayerSide;
     }
 
 }
