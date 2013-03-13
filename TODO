@@ -1,1 +1,3 @@
 Move queues for each character. One move function that takes next move, moves there, then moves on.
+
+Left click to select units, move them with right mouse click.
